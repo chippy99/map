@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         $score = $q1 + $q2 + $q3 + $q4 + $q5 + $q6 + $q7 + $q8 + $q9 + $q10 + $q11 + $q12 + $q13 + $q14 + $q15 + $q16;
         $rating = get_rating($score);
         $pdf_blob =  make_pdf($fname . " " . $sname, $score);
-        save_map_form($person_data, $scores_data, $score, $pdf_blob);
+        save_map_form($person_data, $scores_data, $score, $rating, $pdf_blob);
         $mail_it = get_imed_mail($c_id);
         if ($mail_it['imed_reply'] == 1)    
         {

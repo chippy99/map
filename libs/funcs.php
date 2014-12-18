@@ -168,7 +168,7 @@ function reverse_score($data) {
     return $data;
 }
 
-function save_map_form($person_data, $score_data, $score_total, $pdf_blob) {
+function save_map_form($person_data, $score_data, $score_total, $rating, $pdf_blob) {
     $db = db_open();
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     //check if person exists
@@ -198,7 +198,7 @@ function save_map_form($person_data, $score_data, $score_total, $pdf_blob) {
             $person_id = $db->lastInsertId('person');
         }
     //insert scores
-    $sql = "insert into scores (person_id, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15, q16, score, pdf_blob) values (:person_id, :q1, :q2, :q3, :q4, :q5, :q6, :q7, :q8, :q9, :q10, :q11, :q12, :q13, :q14, :q15, :q16, :score, :pdf_blob)";
+    $sql = "insert into scores (person_id, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15, q16, score, rating, pdf_blob) values (:person_id, :q1, :q2, :q3, :q4, :q5, :q6, :q7, :q8, :q9, :q10, :q11, :q12, :q13, :q14, :q15, :q16, :score, :rating, :pdf_blob)";
     $stmt = $db->prepare($sql);
     $stmt->bindParam(':person_id', $person_id);
     $stmt->bindParam(':q1', $score_data[0]);
@@ -217,7 +217,8 @@ function save_map_form($person_data, $score_data, $score_total, $pdf_blob) {
     $stmt->bindParam(':q14', $score_data[13]);
     $stmt->bindParam(':q15', $score_data[14]);
     $stmt->bindParam(':q16', $score_data[15]);
-     $stmt->bindParam(':score', $score_total);
+    $stmt->bindParam(':score', $score_total);
+    $stmt->bindParam(':rating', $rating); 
     $stmt->bindParam(':pdf_blob', $pdf_blob);
     $stmt->execute(); 
 }
