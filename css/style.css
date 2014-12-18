@@ -1,0 +1,85 @@
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+
+.navbar {
+	background-color: #0b1001;	
+	margin-bottom: 20px;
+	border-color: #59810a;
+	
+}
+
+
+.navbar-default .navbar-brand, .navbar-default .navbar-brand {
+	color: #59810a;
+}
+
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+    color: #99810a;
+    }
+.panel {
+    background-color:  #0b1001;
+   
+    border-color: #59810a;
+    
+}
+    
+.form-control {
+    background-color:  #0b1001;
+    color: #59810a;
+}
+
+.control-label {
+	color: #59810a;
+}
+.title-row > thead > tr > th {
+   vertical-align: bottom;
+   border-bottom: 2px solid hsl(0, 0%, 87%);
+   background-color: red;
+}
+
+.borderless tbody tr td, .borderless thead tr th {
+    border: none;
+}
+table {
+    width: 100%;
+}
+
+thead tr > th.title-row {
+    background-color: #0B1001 !important;
+    vertical-align: middle;
+    border: 1px solid #59810A;
+    padding: 1px;
+}
+
+thead tr > th.title-row-nb {
+   background-color: #0B1001 !important;
+    border: none;
+    padding: 1px;
+}
+
+tbody tr > td.cell-bordered {
+    background-color: #0B1001 !important;
+    vertical-align: middle;
+    border: 1px solid #59810A;
+    padding: 4px 2px 4px 4px;
+}
+
+
+
+.top-space {
+    margin-top: 10px;
+    margin-bottom: 18px;
+    font-size: 18px;
+}
+
+input.form-control {
+    color: white;
+}
+
+input.form-control[readonly] {
+    color: white;
+    background-color: gray;
+}
