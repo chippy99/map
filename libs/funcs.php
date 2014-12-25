@@ -50,6 +50,21 @@ function update_customer($id, $company_name, $email, $contact_name, $passwd, $im
                          ));
 }
 
+function update_user($id, $first_name, $last_name, $email) {
+	$db = db_open();
+	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	$sql = "update person set first_name = :fname, last_name = :lname, email = :email where id = :id";
+	$stmt = $db->prepare($sql);
+	$stmt->execute(array(
+                        ":id"=>$id,
+                        ":fname"=>$first_name,
+						":lname"=>$last_name,
+                        ":email"=>$email
+						));
+
+}
+
+
 function delete_customer($id) {
 
     $db = db_open();
@@ -61,10 +76,21 @@ function delete_customer($id) {
                          ));
 }
 
+function delete_user($id) {
+	$db = db_open();
+	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql = "delete from person where id = :id";
+    $stmt = $db->prepare($sql);
+    $stmt->execute(array(
+                         ":id"=>$id
+                         ));
+}
+
+	
 function list_customers() {
     $res = array();
     $db = db_open();
-    $sql = "select * from customers order by name asc";
+    $sql = "select c.*,(select count(*) from person where org_id = c.id) person_count from customers c order by c.name";
     $stmt = $db->prepare($sql);
     $stmt->execute();
     $rows = $stmt->fetchall();
@@ -105,12 +131,21 @@ function get_imed_mail($id) {
     return $res;
 }
 
+function get_user($id) {
+	$db = db_open();
+	$sql = "select * from person where id = :id";
+	$stmt = $db->prepare($sql);
+	$stmt->execute(array(":id"=>$id));
+	$res = $stmt->fetch();	
+	return $res;
+}
+
 function get_users($id) {
     $res = array();
     $db = db_open();
     $sql = "select p.id, p.first_name, p.last_name, p.email from customers c inner join person p on c.id = p.org_id where c.id = :id";
     $stmt = $db->prepare($sql);
-     $stmt->execute(array(
+    $stmt->execute(array(
            ":id"=>$id
          ));
      $rows = $stmt->fetchall();

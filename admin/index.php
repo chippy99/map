@@ -60,7 +60,19 @@ if (isset($_POST["Submit"]))
                 update_customer($id, $company_name, $email, $contact_name, $passwd, $imed_reply);
                 break;
                              
-            }
+            
+		case "edit_user":
+			$first_name = test_input($_POST["first_name"]);			
+			$last_name = test_input($_POST["last_name"]);
+			$email = test_input($_POST["email"]);
+			$org_id = test_input($_POST["org_id"]);
+			$id = test_input($_POST["person_id"]);
+			update_user($id, $first_name, $last_name, $email);
+			header("Location: index.php?opt=user_list&id=" . $org_id);
+			break;
+		}
+			
+			
         
     }
     
@@ -133,16 +145,38 @@ elseif ($opt == "edit_cust")
          $smarty->assign('cust_data', $data);
         $smarty->display('edit_customer.tpl');
     }
+elseif ($opt == "edit_user")
+    {
+        $user_id =  $_GET["user_id"];
+        $data = get_user($user_id);
+         $smarty->assign('user_data', $data);
+        $smarty->display('edit_user.tpl');
+    }
+
 
 elseif ($opt == "del_cust")
     {
         $cust_id =  $_GET["id"];
         delete_customer($cust_id);
-        $smarty->assign('mypath', $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"]);
-        $smarty->assign('cust', list_customers());
-        $smarty->assign('opt', 'home');
-        $smarty->display('home.tpl');      
+		$smarty->assign('cust', list_customers());
+		$smarty->assign('opt', 'home');
+		$smarty->display('home.tpl');
     }
+elseif ($opt == "del_user")
+    {
+        $user_id =  $_GET["id"];
+		$cust_id = $_GET["c_id"];
+        delete_user($user_id);
+        $data = get_users($cust_id);
+
+		$smarty->assign('user_data', $data);
+        $data2 = get_customer($cust_id);
+        $smarty->assign('cust_name', $data2['name']);
+		$smarty->assign('cust_id', $cust_id);
+        $smarty->display('show_users.tpl');
+      
+    }
+
 elseif ($opt == "user_list")
     {
         $cust_id = $_GET["id"];
@@ -151,6 +185,7 @@ elseif ($opt == "user_list")
         $smarty->assign('user_data', $data);
         $data2 = get_customer($cust_id);
         $smarty->assign('cust_name', $data2['name']);
+		$smarty->assign('cust_id', $cust_id);
         $smarty->display('show_users.tpl');
     }
 elseif ($opt == "comp_graph")

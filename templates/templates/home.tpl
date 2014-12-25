@@ -30,7 +30,12 @@
                 <td class='cell-bordered text-center'><a href="index.php?opt=user_list&id={$i.id}">{$i.person_count}</a></td>
                 <td class='cell-bordered text-center'>{$i.reply_count}</td>
                 <td class='cell-bordered text-center'><input type= "button" class="btn btn-default" onClick="parent.location='index.php?opt=edit_cust&id={$i.id}'" value="Edit"></td>
-                <td class='cell-bordered text-center'><input type ="button" class="btn btn-default" onclick="confirmDelete('index.php?opt=del_cust&id={$i.id}','{$i.name}')" value="Delete"></button></td>
+				{if $i.person_count == 0}
+				<td class='cell-bordered text-center'><input type ="button" class="btn btn-default" onclick="confirmDelete('index.php?opt=del_cust&id={$i.id}','{$i.name}')" value="Delete"></button></td>
+				{else}
+				<td class='cell-bordered text-center'><input type ="button" class="btn btn-default" disabled value="Delete"></button></td>
+				{/if}
+
               </tr>
 
             {/foreach}
@@ -43,7 +48,7 @@
 
 <script type='text/javascript'>
 function confirmDelete(delUrl, name) {
-  if (confirm("Are you sure you want to delete " + name )) {
+  if (confirm("Are you sure you want to delete " + name + ", all data for this customer will be permanently deleted")) {
    document.location = delUrl;
   }
 }

@@ -33,12 +33,17 @@
                 
         <div class="form-group">
           <div class="col-sm-offset-3 col-sm-3">
-             <button type="submit" class="btn btn-default" name="Submit" value="edit_user">Save</button>&nbsp;
+			<button type="submit" class="btn btn-default" name="Submit" value="edit_user">Save</button>&nbsp;
             <button type="submit" class="btn btn-default" name="Cancel" value="cancel">Close</button>
           </div>
         </div>
 
-        <input type="hidden" name="id" value="{$user_data.id}">
+
+
+        <input type="hidden" name="org_id" value="{$user_data.org_id}">
+		<input type="hidden" name="person_id" value="{$user_data.id}">
+
+
       </form>
     </div><!-- panel-body -->
   </div><!-- panel -->

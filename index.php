@@ -9,7 +9,7 @@ if (isset($_POST['c_id']))
 if (isset($_GET['c_id']))
     {
         $c_id =  $_GET['c_id'];
-        echo("hi");
+        
     }
 
 
@@ -17,9 +17,9 @@ if (isset($_GET['c_id']))
 if (isset($c_id)) {
 
    
-    $company = get_cid($c_id);
-   
-    // clear out any existing session that may exist
+	$company = get_cid($c_id);
+
+	// clear out any existing session that may exist
     session_start();
     session_destroy();
     session_start();
