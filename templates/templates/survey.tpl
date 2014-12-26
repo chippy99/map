@@ -1,18 +1,6 @@
 {include file="header.tpl" title="Meta-LUCID MAP Survey"}
 
 <div class="container">
-  <!--<form name="logoutform" action="index.php" method="post" id="logoutForm">
-    <div class="row">
-      <div class="col-sm-10">
-        <h2>Meta-Lucid MAP Survey</h2>
-      </div>
-      <div class="col-sm-2">
-        <button id="singlebutton" name="singlebutton" class="btn btn-primary center-block" type="submit">Sign Out</button>
-      </div>
-    </div>
-  </form>-->
-
-  
 
   <form name="surveyform" class="form-horizontal" role="form" action="survey_submit.php" method="post" id="surveyForm">
     <div class="row">
@@ -62,12 +50,9 @@
      <thead>
        <tr>
          <th class="title-row-nb col-xs-6" colspan="2">&nbsp;</th>
-         <th class="text-center title-row col-xs-1">Disagree a lot</th>
-         <th class="text-center title-row col-xs-1">Disagree</th>
-         <th class="text-center title-row col-xs-1">Disagree a little</th>
-         <th class="text-center  title-row col-xs-1">Agree a little</th>
-         <th class="text-center  title-row col-xs-1">Agree</th>
-         <th class="text-center  title-row col-xs-1">Agree a lot</th>
+		{foreach $answers as $a}
+         <th class="text-center title-row col-xs-1">{$a}</th>
+		{/foreach}
        </tr>
      </thead>
      <tbody>
@@ -75,12 +60,12 @@
      {foreach $questions as $q}
        <tr><td class='text-center cell-bordered'>{$q@iteration}</td>
          <td class="cell-bordered">{$q}</td>
-         <td class='text-center cell-bordered'><input type='radio' required='required' name='q{$q@iteration}' id='q{$q@iteration}-1' value='1'/></td>
-         <td class='text-center cell-bordered'><input type='radio' required='required' name='q{$q@iteration}' id='q{$q@iteration}-2' value='2'/></td>
-         <td class='text-center cell-bordered'><input type='radio' required='required' name='q{$q@iteration}' id='q{$q@iteration}-3' value='3'/></td>
-         <td class='text-center cell-bordered'><input type='radio' required='required' name='q{$q@iteration}' id='q{$q@iteration}-4' value='4'/></td>
-         <td class='text-center cell-bordered'><input type='radio' required='required' name='q{$q@iteration}' id='q{$q@iteration}-5' value='5'/></td>
-         <td class='text-center cell-bordered'><input type='radio' required='required' name='q{$q@iteration}' id='q{$q@iteration}-6' value='6'/></td>
+         <td class='text-center cell-bordered'><input type='radio' data-toggle="tooltip" data-placement="top" title="{$answers[0]}" required='required' name='q{$q@iteration}' id='q{$q@iteration}-1' value='1'/></td>
+         <td class='text-center cell-bordered'><input type='radio' data-toggle="tooltip" data-placement="top" title="{$answers[1]}" required='required' name='q{$q@iteration}' id='q{$q@iteration}-2' value='2'/></td>
+         <td class='text-center cell-bordered'><input type='radio' data-toggle="tooltip" data-placement="top" title="{$answers[2]}" required='required' name='q{$q@iteration}' id='q{$q@iteration}-3' value='3'/></td>
+         <td class='text-center cell-bordered'><input type='radio' data-toggle="tooltip" data-placement="top" title="{$answers[3]}" required='required' name='q{$q@iteration}' id='q{$q@iteration}-4' value='4'/></td>
+         <td class='text-center cell-bordered'><input type='radio' data-toggle="tooltip" data-placement="top" title="{$answers[4]}" required='required' name='q{$q@iteration}' id='q{$q@iteration}-5' value='5'/></td>
+         <td class='text-center cell-bordered'><input type='radio' data-toggle="tooltip" data-placement="top" title="{$answers[5]}" required='required' name='q{$q@iteration}' id='q{$q@iteration}-6' value='6'/></td>
        </tr>
 
      {/foreach}
@@ -94,7 +79,7 @@
    <div class="form-group">
      <label class="col-md-4 control-label" for="singlebutton"></label>
      <div class="col-md-4 center-block">
-       <button id="singlebutton" name="singlebutton" class="btn btn-primary center-block" type="submit">Submit</button>
+       <button id="singlebutton" name="singlebutton" class="btn btn-success center-block" type="submit">Submit</button>
      </div>  
    </div>
    <input type="hidden" name="c_id" value="{$company.id}">
