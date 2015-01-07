@@ -8,7 +8,7 @@
         <img width="105" height="89"src="http://map.meta-lucid.com/images/ML_Logo.jpg"></img>
       </div>
       <div class="col-sm-8">
-        <h2>Meta-LUCID MAP Survey</h2>
+        <h1>Meta-LUCID MAP Survey</h1>
       </div>
       </div>
       <br/>

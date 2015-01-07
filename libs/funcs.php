@@ -169,12 +169,14 @@ function generate_password($len = 8) {
     }  
 
 function get_cid($c_id) {
+    echo("qq=" . $c_id);
     $db = db_open();
-    $sql  = "SELECT id, name from customers where password=:p";
+    $sql  = "SELECT id, name from customers where password='" . $c_id . "'";
     $stmt = $db->prepare($sql);
-    $stmt->execute(array(
-           ":p"=>$c_id
-         ));
+    //$stmt->execute(array(
+    //       ":p"=>$c_id
+    //     ));
+    $stmt->execute();
     $res = $stmt->fetch();
     return $res;
 }
@@ -359,43 +361,43 @@ function cust_graph_data($id) {
 
 function get_rating($score)
 {
-	if ($row2['score'] < 25)
+	if ($score < 25)
 	{
 		return "F5";
 	}
-	if ($row2['score'] >= 25 and $row2['score'] <= 33)
+	if ($score >= 25 and $score <= 33)
 	{
 		return "F4";
 	}
-	if ($row2['score'] >= 34 and $row2['score'] <= 42)
+	if ($score >= 34 and $score <= 42)
 	{
 		return "F3";
 	}
-	if ($row2['score'] >= 43 and $row2['score'] <= 50)
+	if ($score >= 43 and $score <= 50)
 	{
 		return "F2";
 	}
-	if ($row2['score'] >= 51 and $row2['score'] <= 59)
+	if ($score >= 51 and $score <= 59)
 	{
 		return "F1";
 	}
-	if ($row2['score'] >= 60 and $row2['score'] <= 68)
+	if ($score >= 60 and $score <= 68)
 	{
 		return "G1";
 	}
-	if ($row2['score'] >= 69 and $row2['score'] <= 77)
+	if ($score >= 69 and $score <= 77)
 	{
 		return "G2";
 	}
-	if ($row2['score'] >= 78 and $row2['score'] <= 86)
+	if ($score >= 78 and $score <= 86)
 	{
 		return "G3";
 	}
-	if ($row2['score'] >= 87 and $row2['score'] <= 95)
+	if ($score >= 87 and $score <= 95)
 	{
 		return "G4";
 	}
-	if ($row2['score'] >= 96)
+	if ($score >= 96)
 	{
 		return "G5";;
 	}

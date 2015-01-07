@@ -1,5 +1,10 @@
         
-
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+<br/>
+<p class="text-center"><small>&copy; {'Y'|date} <a href="http://www.meta-lucid.com">MetaLucid</a> All rights reserved</small></p>
+</div></div></div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
