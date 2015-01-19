@@ -33,7 +33,7 @@
         <div class="form-group">
           <label for="inputImed" class="col-sm-3 control-label">Email result</label>
           <div class="col-sm-1">
-            <input type="checkbox" name="imed_reply" class="form-control" id="inputImed" checked value="yes" >
+            <input type="checkbox" name="imed_reply" class="form-control" id="inputImed" value="yes" >
           </div>
         </div><!-- form-group -->
         

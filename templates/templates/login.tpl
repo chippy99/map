@@ -1,7 +1,7 @@
-{include file="header.tpl" title="MetaLucid MAP Survey - Login"}
+{include file="header.tpl" title="Meta-LUCID MAP Survey - Login"}
 
   <div class="container">
-    <h1>MetaLucid MAP Sign In</h1>
+    <h1>Meta-LUCID MAP Sign In</h1>
     <h3>Please enter your customer id to proceed to the MAP questionaire</h3><br/><br/>
 <form class="form-horizontal" role="form" method="post" action="index.php">
  

@@ -15,7 +15,7 @@
               <th class="text-center title-row col-xs-4">Company</th>
               <th class="text-center title-row col-xs-4">Contact</th>
               <th class="text-center title-row col-xs-1">Users</th>
-              <th class="text-center title-row col-xs-1">Replies</th>
+              <!--<th class="text-center title-row col-xs-1">Replies</th>-->
               <th class="col-xs-1"></th>
               <th class="col-xs-1"></th>
               
@@ -28,7 +28,7 @@
                 <td class='cell-bordered'><a href="index.php?opt=comp_list&id={$i.id}">{$i.name}</a></td>
                 <td class='cell-bordered'>{$i.contact}</td>
                 <td class='cell-bordered text-center'><a href="index.php?opt=user_list&id={$i.id}">{$i.person_count}</a></td>
-                <td class='cell-bordered text-center'>{$i.reply_count}</td>
+                <!--<td class='cell-bordered text-center'></td>-->
                 <td class='cell-bordered text-center'><input type= "button" class="btn btn-default" onClick="parent.location='index.php?opt=edit_cust&id={$i.id}'" value="Edit"></td>
 				{if $i.person_count == 0}
 				<td class='cell-bordered text-center'><input type ="button" class="btn btn-default" onclick="confirmDelete('index.php?opt=del_cust&id={$i.id}','{$i.name}')" value="Delete"></button></td>

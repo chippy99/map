@@ -17,9 +17,9 @@ if (isset($_GET['c_id']))
     
 if (isset($c_id)) {
 
-    echo("c_id=" . $c_id);
+    //echo("c_id=" . $c_id);
 	$company = get_cid($c_id);
-    echo("comp=" . $company);
+    //echo("comp=" . $company);
 	// clear out any existing session that may exist
     session_start();
     session_destroy();

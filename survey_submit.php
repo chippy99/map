@@ -10,8 +10,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         $c_id = test_input($_POST["c_id"]);
         $organisation = test_input($_POST["c_org"]);
         $email = test_input($_POST["c_email"]);
+        $email = strtolower($email);
         $fname = test_input($_POST["c_fname"]);
+        $fname = ucfirst(strtolower($fname));
         $sname = test_input($_POST["c_sname"]);
+        $sname = ucfirst(strtolower($sname));
         $q1 = test_input($_POST["q1"]);
         $q2 = test_input($_POST["q2"]);
         $q3 = test_input($_POST["q3"]);

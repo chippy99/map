@@ -9,7 +9,8 @@
             <tr>
               <th class="text-center title-row col-xs-5">Name</th>
               <th class="text-center title-row col-xs-4">Email</th>
-              <th class="text-center title-row col-xs-1">Replies</th>
+              <th class="text-center title-row col-xs-1">Score</th>
+              <th class="text-center title-row col-xs-1">Rating</th>
               <th class="col-xs-1"></th>
               <th class="col-xs-1"></th>
               
@@ -20,13 +21,17 @@
 
             <tr>
 
-              <td class='cell-bordered'><a href="index.php?opt=results_list&id={$i.id}">{$i.first_name} {$i.last_name}</a></td>
+              <td class='cell-bordered'>{$i.first_name} {$i.last_name}</td>
 
               <td class='cell-bordered'>{$i.email}</td>
 
-              <td class='cell-bordered text-center'>{$i.score_count}</td>
+              <td class='cell-bordered text-center'>{$i.score}</td>
+              <td class='cell-bordered text-center'>{$i.rating}</td>
                
 
+              <td class='cell-bordered text-center'><input type= "button" class="btn btn-default" onClick="parent.location='index.php?opt=view_user_result&user_id={$i.id}'" value="View PDF"></td>
+               <td class='cell-bordered text-center'><input type= "button" class="btn btn-default" onClick="parent.location='index.php?opt=view_user_answers&user_id={$i.id}'" value="View Answers"></td>
+              <td class='cell-bordered text-center'><input type= "button" class="btn btn-default" onClick="parent.location='index.php?opt=email_user_result&user_id={$i.id}'" value="Email"></td>
               <td class='cell-bordered text-center'><input type= "button" class="btn btn-default" onClick="parent.location='index.php?opt=edit_user&user_id={$i.id}'" value="Edit"></td>
 
               <td class='cell-bordered text-center'><input type ="button" class="btn btn-default" onclick="confirmDelete('index.php?opt=del_user&id={$i.id}&c_id={$cust_id}','{$i.first_name} {$i.last_name}')" value="Delete"></button></td>
